@@ -1,0 +1,65 @@
+# Introduction
+
+This is a book created from markdown and executable code.
+
+Testing `Leaflet` Maps into a book! Lets see!
+
+## Libraries
+
+```{r}
+library(magrittr)
+library(leaflet)
+library(readxl)
+```
+
+## This is The Data to plot on a map.
+
+```{r}
+Area_of_Collection <- read_excel("Area of Collection.xlsx")
+rmarkdown::paged_table(head(Area_of_Collection))
+```
+
+And This is the output!
+
+## Map
+
+```{r}
+leaflet(Area_of_Collection) %>%
+  addTiles() %>%
+  addMarkers(
+    lng = ~ Lon,
+    lat = ~ Lat,
+    popup = paste0(Area_of_Collection$Name, "<br>", "Market Code: ", Area_of_Collection$`Market Code`),
+    popupOptions = popupOptions(closeButton = F)
+  )
+
+```
+
+## Diffrent Styles
+
+### Esri
+
+```{r}
+leaflet(Area_of_Collection) %>%
+  addProviderTiles(providers$Esri) %>%
+  addMarkers(
+    lng = ~ Lon,
+    lat = ~ Lat,
+    popup = paste0(Area_of_Collection$Name, "<br>", "Market Code: ", Area_of_Collection$`Market Code`),
+    popupOptions = popupOptions(closeButton = F)
+  )
+```
+
+### CartoDb
+
+```{r}
+leaflet(Area_of_Collection) %>%
+  addProviderTiles(providers$CartoDB) %>%
+  addMarkers(
+    lng = ~ Lon,
+    lat = ~ Lat,
+    popup = paste0(Area_of_Collection$Name, "<br>", "Market Code: ", Area_of_Collection$`Market Code`),
+    popupOptions = popupOptions(closeButton = F)
+  )
+```
+

@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Interactive Maps In a Book!",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nTesting Leaflet Maps into a book! Lets see!"
+  },
+  {
+    "objectID": "index.html#libraries",
+    "href": "index.html#libraries",
+    "title": "Interactive Maps In a Book!",
+    "section": "1.1 Libraries",
+    "text": "1.1 Libraries\n\nlibrary(magrittr)\nlibrary(leaflet)\nlibrary(readxl)"
+  },
+  {
+    "objectID": "index.html#this-is-the-data-to-plot-on-a-map.",
+    "href": "index.html#this-is-the-data-to-plot-on-a-map.",
+    "title": "Interactive Maps In a Book!",
+    "section": "1.2 This is The Data to plot on a map.",
+    "text": "1.2 This is The Data to plot on a map.\n\nArea_of_Collection <- read_excel(\"Area of Collection.xlsx\")\nrmarkdown::paged_table(head(Area_of_Collection))\n\n\n\n  \n\n\n\nAnd This is the output!"
+  },
+  {
+    "objectID": "index.html#map",
+    "href": "index.html#map",
+    "title": "Interactive Maps In a Book!",
+    "section": "1.3 Map",
+    "text": "1.3 Map\n\nleaflet(Area_of_Collection) %>%\n  addTiles() %>%\n  addMarkers(\n    lng = ~ Lon,\n    lat = ~ Lat,\n    popup = paste0(Area_of_Collection$Name, \"<br>\", \"Market Code: \", Area_of_Collection$`Market Code`),\n    popupOptions = popupOptions(closeButton = F)\n  )"
+  },
+  {
+    "objectID": "index.html#diffrent-styles",
+    "href": "index.html#diffrent-styles",
+    "title": "Interactive Maps In a Book!",
+    "section": "1.4 Diffrent Styles",
+    "text": "1.4 Diffrent Styles\n\n1.4.1 Esri\n\nleaflet(Area_of_Collection) %>%\n  addProviderTiles(providers$Esri) %>%\n  addMarkers(\n    lng = ~ Lon,\n    lat = ~ Lat,\n    popup = paste0(Area_of_Collection$Name, \"<br>\", \"Market Code: \", Area_of_Collection$`Market Code`),\n    popupOptions = popupOptions(closeButton = F)\n  )\n\n\n\n\n\n\n\n1.4.2 CartoDb\n\nleaflet(Area_of_Collection) %>%\n  addProviderTiles(providers$CartoDB) %>%\n  addMarkers(\n    lng = ~ Lon,\n    lat = ~ Lat,\n    popup = paste0(Area_of_Collection$Name, \"<br>\", \"Market Code: \", Area_of_Collection$`Market Code`),\n    popupOptions = popupOptions(closeButton = F)\n  )"
+  }
+]
