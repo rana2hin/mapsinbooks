@@ -6,6 +6,7 @@ book:
   author: "Tuhin Rana"
   date: "3/15/2023"
   cover-image: cover.png
+  repo-url: https://github.com/rana2hin/mapsinbooks/
   downloads: [pdf, epub]
   sharing: [facebook, twitter]
   chapters:
