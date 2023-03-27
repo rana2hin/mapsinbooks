@@ -66,4 +66,3 @@ leaflet(Area_of_Collection) %>%
     popupOptions = popupOptions(closeButton = F)
   )
 ```
-

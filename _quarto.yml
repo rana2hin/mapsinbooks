@@ -1,6 +1,10 @@
 project:
   type: book
 
+comments:
+  hypothesis: 
+    theme: clean
+
 book:
   title: "Interactive Maps In a Book!"
   author: "Tuhin Rana"
